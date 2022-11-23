@@ -4,11 +4,11 @@ import ActivityList from './ActivityList';
 import ActivityDetails from '../details/ActivityDetails';
 import ActivityForm from '../form/ActivityForm';
 
-export default function ActivityDashboard({activities, selectedActivity, selectActivity, cancelSelectedActivity, editMode, openForm, closeForm, createOrEdit}) {
+export default function ActivityDashboard({activities, selectedActivity, selectActivity, cancelSelectedActivity, editMode, openForm, closeForm, createOrEdit, deleteActivity}) {
     return (
         <Grid>
             <Grid.Column width='10'>
-                <ActivityList activities={activities} selectActivity={selectActivity}/>
+                <ActivityList activities={activities} selectActivity={selectActivity} deleteActivity={deleteActivity}/>
             </Grid.Column>
             <Grid.Column width='6'>
                 {

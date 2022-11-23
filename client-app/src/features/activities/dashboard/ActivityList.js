@@ -1,7 +1,7 @@
 import React from 'react';
 import { Item, Segment, Button, Label } from 'semantic-ui-react';
 
-export default function ActivityList({activities, selectActivity}) {
+export default function ActivityList({activities, selectActivity, deleteActivity}) {
     return(
         <Segment>
 
@@ -17,7 +17,7 @@ export default function ActivityList({activities, selectActivity}) {
                             </Item.Description>
                             <Item.Extra>
                                 <Button onClick={() => (selectActivity(activity.id))} floated='right' content='View' color='blue' />
-                                <Label basic content={activity.category} />
+                                <Button onClick={() => (deleteActivity(activity.id))} floated='right' content='Delete' color='red' />
                             </Item.Extra>
                         </Item.Content>
                     </Item>
