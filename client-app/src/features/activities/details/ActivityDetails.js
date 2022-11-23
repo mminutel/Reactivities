@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Icon, Image } from 'semantic-ui-react';
 
-export default function ActivityDetails ({activity}) {
+export default function ActivityDetails ({activity, cancelSelectedActivity, openForm}) {
     return (
         <Card fluid>
             <Image src={`/assets/Images/categoryImages/${activity.category}.jpg`} />
@@ -16,8 +16,8 @@ export default function ActivityDetails ({activity}) {
             </Card.Content>
             <Card.Content extra>
                 <Button.Group widths='2'>
-                    <Button basic color='blue' content='Edit' />
-                    <Button basic color='grey' content='Cancel' />
+                    <Button basic color='blue' content='Edit' onClick={() => openForm(activity.id)}/>
+                    <Button onClick={cancelSelectedActivity} basic color='grey' content='Cancel' />
                 </Button.Group>
             </Card.Content>
         </Card>
