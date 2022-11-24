@@ -1,6 +1,6 @@
 import {makeAutoObservable, runInAction} from 'mobx';
-import agent from '../agent';
 import {v4 as uuid} from 'uuid';
+import agent from '../agent';
 
 export default class ActivityStore {
     activityRegistry = new Map();

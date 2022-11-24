@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Form, Segment, Button } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
-import {observer} from 'mobx-react-lite';
+import { observer } from 'mobx-react-lite';
 
 export default observer(function ActivityForm() {
 
