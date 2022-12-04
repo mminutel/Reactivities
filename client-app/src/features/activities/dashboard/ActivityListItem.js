@@ -1,19 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Item, Segment, Icon, Button } from 'semantic-ui-react';
-import { useStore } from '../../../app/stores/store';
 import { Link } from 'react-router-dom';
 
 export default function ActivityListItem({activity}) {
-
-    const {activityStore} = useStore();
-    const {selectActivity, deleteActivity, loading} = activityStore;
-    
-    const [target, setTarget] = useState("");
-
-    function handleActivityDelete(e, id) {
-        setTarget(e.currentTarget.name);
-        deleteActivity(id);
-    }
 
     return (
         <Segment.Group>

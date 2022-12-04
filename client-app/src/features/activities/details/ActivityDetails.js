@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { Grid } from 'semantic-ui-react';
 import { useStore } from '../../../app/stores/store';
 import LoadingComponent from '../../../app/layout/LoadingComponents'
-import { useParams, Link} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import ActivityDetailsHeader from './ActivityDetailsHeader';
 import ActivityDetailsInfo from './ActivityDetailsInfo';
