@@ -8,6 +8,9 @@ import ActivityDashboard from '../../features/activities/dashboard/ActivityDashb
 import HomePage from '../../features/home/HomePage';
 import ActivityForm from '../../features/activities/form/ActivityForm';
 import ActivityDetails from '../../features/activities/details/ActivityDetails';
+import TestErrors from '../../features/errors/TestError';
+import {ToastContainer} from 'react-toastify';
+import NotFound from '../../features/errors/NotFound';
 
 function App() {
 
@@ -15,6 +18,7 @@ function App() {
 
   return (
     <Fragment>
+      <ToastContainer position='bottom-right' hideProgressBar></ToastContainer>
       <NavBar />
       <Container style={{ marginTop: '7em' }}>
         <Routes>
@@ -26,6 +30,8 @@ function App() {
               <Route key={location.key} path={path} element={<ActivityForm key={location.key} />} />
             );
           })}
+          <Route path='/errors' element={<TestErrors />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Container>
     </Fragment>

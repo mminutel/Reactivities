@@ -1,11 +1,10 @@
-using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
-using Persistence;
-using MediatR;
-using Application.Activities;
-using Application.Core;
-using AutoMapper;
 using API.Extensions;
+using API.Middleware;
+using Application.Activities;
+using Domain;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using static Application.Activities.Create;
 
 namespace API
 {
@@ -21,18 +20,22 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddFluentValidationAutoValidation();
+            services.AddFluentValidationClientsideAdapters();
+            services.AddValidatorsFromAssemblyContaining<Create>();
+
             services.AddApplicationServices(_config);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<ExceptionMiddleware>();
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
-                
             }
 
             //app.UseHttpsRedirection();
